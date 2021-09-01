@@ -1,5 +1,4 @@
-
-                    <td><label>Classe</label></td>
+<td><label>Classe</label></td>
                     <td>
                     <select name="classe">
                         <option value="classe1">IFA-P3A</option>

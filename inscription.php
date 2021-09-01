@@ -58,7 +58,7 @@ and open the template in the editor.
                 </tr>
                 <tr>
                     <?php
-                    require "htmlToPhp.inc.php/afficherSelectActivites.php";
+                    require "htmlToPhp.inc.php";
                     ?>
                 <tr>
                     <td><input type="submit" name="envoyer" value="Confirmer"/></td>
