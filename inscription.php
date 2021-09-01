@@ -11,6 +11,11 @@ and open the template in the editor.
     </head>
     <body>
         <?php
+        require "fonctionsBD.inc.php";
+        $connexion = getConnexion();
+        $listBdoActivite = getActivites();
+        $listClasse = getClasse();
+        
         $nom = filter_input(INPUT_POST, 'Nom');
         $prenom = filter_input(INPUT_POST, 'Prenom');
 
@@ -57,9 +62,45 @@ and open the template in the editor.
                     <td><input type="text" name="Prenom" id="Prenom" value="<?= $prenom ?>" require/></td>
                 </tr>
                 <tr>
+                <td><label>Classe</label></td>
+                <td>
+                    <select name="classe">
                     <?php
-                    require "htmlToPhp.inc.php";
+                    afficherSelectClasse($listClasse)
                     ?>
+                    </select>
+                </td>
+                </tr>
+                 <tr>
+                <td><label>Premier Choix</label></td>
+                <td>
+                    <select name="choix1">
+                    <?php
+                    afficherSelectActivite($listActivite)
+                    ?>
+                    </select>
+                 </td>
+                </tr>
+                 <tr>
+                <td><label>Deuxieme choix</label></td>
+                <td>
+                    <select name="choix2">
+                    <?php
+                      afficherSelectActivite($listActivite)
+                    ?>
+                    </select>
+                    </td>
+                </tr>
+                <tr>
+                <td><label>troisieme choix</label></td>
+                <td>
+                    <select name="choix3">
+                    <?php
+                      afficherSelectActivite($listActivite)
+                    ?>
+                    </select>
+                </td>
+                </tr>
                 <tr>
                     <td><input type="submit" name="envoyer" value="Confirmer"/></td>
                 </tr>

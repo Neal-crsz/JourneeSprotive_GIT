@@ -3,7 +3,7 @@ function getConnexion()
 {
   
     $serveur = '127.0.0.1';
-    $pseudo = 'user151';
+    $pseudo = 'root';
     $pwd = '';
     $db = 'journeesportive';
 
@@ -20,7 +20,14 @@ function getConnexion()
 function getActivites()
 {
 $bdd = getConnexion();
-$bddRequette = $bdd->query("select * from activite");
+$bddRequette = $bdd->query("select * from activite where nomActivite");
+$resultat = $bddRequette->fetchAll(PDO::FETCH_ASSOC);
+return $resultat;
+}
+
+function getClasse(){
+    $bdd = getConnexion();
+$bddRequette = $bdd->query("select * from classe where nomClasse");
 $resultat = $bddRequette->fetchAll(PDO::FETCH_ASSOC);
 return $resultat;
 }
