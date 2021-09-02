@@ -12,9 +12,7 @@ and open the template in the editor.
     <body>
         <?php
         require "fonctionsBD.inc.php";
-        $connexion = getConnexion();
-        $listBdoActivite = getActivites();
-        $listClasse = getClasse();
+        require "htmlToPhp.inc.php";
         
         $nom = filter_input(INPUT_POST, 'Nom');
         $prenom = filter_input(INPUT_POST, 'Prenom');
@@ -25,16 +23,16 @@ and open the template in the editor.
         if(isset($_POST['classe'])){
             $classe = $_POST['classe'];
         }
-        if(isset($_POST['choix1'])){
-            $choix1 = $_POST['choix1'];
+        if(isset($_POST['choix-1'])){
+            $choix1 = $_POST['choix-1'];
         }
 
-        if(isset($_POST['choix2'])){
-            $choix2 = $_POST['choix2'];
+        if(isset($_POST['choix-2'])){
+            $choix2 = $_POST['choix-2'];
         }
 
-        if(isset($_POST['choix3'])){
-            $choix3 = $_POST['choix3'];
+        if(isset($_POST['choix-3'])){
+            $choix3 = $_POST['choix-3'];
         }
 
         //Affichage
@@ -42,8 +40,8 @@ and open the template in the editor.
             echo 'Prénom : ' . $prenom . '<br>';
             echo 'classe : ' . $classe . '<br>';
             echo 'choix1 : ' . $choix1 . '<br>';
-            echo 'choix2 : ' . $choix2 . '<br>';
-            echo 'choix3 : ' . $choix3 . '<br>';
+            echo 'choix2 : ' . $choix2. '<br>';
+            echo 'choix3 : ' . $choix3. '<br>';
         }
 
 
@@ -52,58 +50,19 @@ and open the template in the editor.
             Inscription à la journée sportive du CFPT
         </header>
         <form action="#" method="POST">
-            <table>
-                <tr>
-                    <td><label>Nom</label></td>
-                    <td><input type="text" name="Nom" id="Nom" value="<?= $nom ?>" require/></td>
-                </tr>
-                <tr>
-                    <td><label>Prénom</label></td>
-                    <td><input type="text" name="Prenom" id="Prenom" value="<?= $prenom ?>" require/></td>
-                </tr>
-                <tr>
-                <td><label>Classe</label></td>
-                <td>
-                    <select name="classe">
-                    <?php
-                    afficherSelectClasse($listClasse)
-                    ?>
-                    </select>
-                </td>
-                </tr>
-                 <tr>
-                <td><label>Premier Choix</label></td>
-                <td>
-                    <select name="choix1">
-                    <?php
-                    afficherSelectActivite($listActivite)
-                    ?>
-                    </select>
-                 </td>
-                </tr>
-                 <tr>
-                <td><label>Deuxieme choix</label></td>
-                <td>
-                    <select name="choix2">
-                    <?php
-                      afficherSelectActivite($listActivite)
-                    ?>
-                    </select>
-                    </td>
-                </tr>
-                <tr>
-                <td><label>troisieme choix</label></td>
-                <td>
-                    <select name="choix3">
-                    <?php
-                      afficherSelectActivite($listActivite)
-                    ?>
-                    </select>
-                </td>
-                </tr>
-                <tr>
-                    <td><input type="submit" name="envoyer" value="Confirmer"/></td>
-                </tr>
+            <label>Nom :</label><br>
+            <input type="text" name="Nom" id="Nom" value="<?= $nom ?>" require/>
+            <label>Prénom :</label><br>
+            <input type="text" name="Prenom" id="Prenom" value="<?= $prenom ?>" require/><br>
+            <?php
+            afficherSelectClasse();
+            ?>
+            <?php
+            afficherSelectActivite("choix");
+            ?>
+            <input type="submit" name="envoyer" value="Confirmer"/>
+            <input type="reset" name="annuler" value="Annuler"/><br><br>
+            <a href="administration.php"><input type="button" name="admin" value="Ajouter une activiter ou une classe"/></a>
             </table>
         </form>
         <footer>

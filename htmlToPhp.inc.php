@@ -1,29 +1,38 @@
 <?php
 
-function afficherSelectActivite($listActivite)
+function afficherSelectActivite($name)
 {
-    ?>
-<option value="">--Choisir un sport</option>
-<?php
-foreach ($listActivite as $value)
+ $activites = getActivites();
+
+ for ($i=1; $i < 4; $i++)
  {
-    ?>
-    <option value="<?php echo $value['nomActivite']; ?>"><?php echo $value['nomActivite']; ?></option>
-    <?php
+     echo "
+     <label>Choix $i : </label><br>
+     <select name='$name-$i'>";
+     foreach ($activites as $key => $activite) 
+     {
+            echo "<option value='" . $activite['nomActivite']."'>";
+            echo $activite['nomActivite'];
+            echo "</option>";
+     }
+     echo "</select><br><br>";
  }
+ 
 }
 
-function afficherSelectClasse($listClasse)
+function afficherSelectClasse()
 {
-    ?>
-<option value="">--Choisir votre Classe</option>
-<?php
-foreach ($listClasse as $value)
- {
-    ?>
-    <option value="<?php echo $value['nomClasse']; ?>"><?php echo $value['nomClasse']; ?></option>
-    <?php
- }
+    $Classes = getClasse();
+        echo "
+        <label>Classe :</label><br>
+        <select name='classe'>";
+        foreach ($Classes as $key => $Classe) 
+        {
+               echo "<option value='" . $Classe['nomClasse']."'>";
+               echo $Classe['nomClasse'];
+               echo "</option>";
+        }
+        echo "</select><br><br>";
 }
 ?>
 

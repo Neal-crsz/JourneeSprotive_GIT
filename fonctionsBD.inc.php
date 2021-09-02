@@ -20,15 +20,31 @@ function getConnexion()
 function getActivites()
 {
 $bdd = getConnexion();
-$bddRequette = $bdd->query("select * from activite where nomActivite");
+$bddRequette = $bdd->prepare("select * from activite");
+$bddRequette->execute();
 $resultat = $bddRequette->fetchAll(PDO::FETCH_ASSOC);
 return $resultat;
 }
 
 function getClasse(){
     $bdd = getConnexion();
-$bddRequette = $bdd->query("select * from classe where nomClasse");
+$bddRequette = $bdd->prepare("select * from classe");
+$bddRequette->execute();
 $resultat = $bddRequette->fetchAll(PDO::FETCH_ASSOC);
 return $resultat;
+}
+
+function insertActivites($activiteAjouter)
+{
+$bdd = getConnexion();
+$bddRequette = $bdd->prepare("insert into activite(nomActivite) values (?)");
+$bddRequette->execute([$activiteAjouter]);
+}
+
+function insertClasses($classeAjouter)
+{
+$bdd = getConnexion();
+$bddRequette = $bdd->prepare("insert into classe(nomClasse) values (?)");
+$bddRequette->execute([$classeAjouter]);
 }
 ?>
