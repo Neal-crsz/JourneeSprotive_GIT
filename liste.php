@@ -36,8 +36,8 @@
                                 <td><?php echo $resultat[$i][1]; ?></td>
                                 <td></td>
                                 <td></td>
-                                <td>Editer</td>
-                                <td>Supprimer</td>
+                                <td><a href="EditerClasse.php?idClasse=<?php echo $resultat[$i][0]; ?>">Editer</a></td>
+                                <td><a href="deleteClasse.php?idClasse=<?php echo $resultat[$i][0]; ?>">Supprimer</a></td>
                             </tr>
                             <?php
                         }
@@ -68,15 +68,18 @@
                                 <td><?php echo $resultat[$i][1]; ?></td>
                                 <td></td>
                                 <td></td>
-                                <td>Editer</td>
-                                <td>Supprimer</td>
+                                <td><a href="EditerActiviter.php?idActivite=<?php echo $resultat[$i][0]; ?>"> Editer</a></td>
+                                <td><a href="deleteActivite.php?idActivite=<?php echo $resultat[$i][0]; ?>">Supprimer</a></td>
                             </tr>
+                            <tr>
                             <?php
                         }
                     }
                 } 
                 ?>
-
+                <tr>
+                    <td><a href="inscription.php"><input type="button" name="retour" value="retour"/></a></td>
+                </tr>
         </table>
         <footer>
             NEAL CRAUSAZ

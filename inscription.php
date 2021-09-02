@@ -62,7 +62,8 @@ and open the template in the editor.
             ?>
             <input type="submit" name="envoyer" value="Confirmer"/>
             <input type="reset" name="annuler" value="Annuler"/><br><br>
-            <a href="administration.php"><input type="button" name="admin" value="Ajouter une activiter ou une classe"/></a>
+            <a href="administration.php"><input type="button" name="admin" value="Ajouter une activiter ou une classe"/></a><br>
+            <a href="liste.php"><input type="button" name="liste" value="liste"/></a>
             </table>
         </form>
         <footer>

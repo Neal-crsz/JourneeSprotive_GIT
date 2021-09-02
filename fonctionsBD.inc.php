@@ -47,4 +47,5 @@ $bdd = getConnexion();
 $bddRequette = $bdd->prepare("insert into classe(nomClasse) values (?)");
 $bddRequette->execute([$classeAjouter]);
 }
+
 ?>
